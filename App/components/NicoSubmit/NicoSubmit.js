@@ -4,9 +4,6 @@ import {MoodButton} from '../MoodButton/MoodButton.js';
 
 export class Nico extends Component {
   render() {
-    let happy = require('../../../assets/happy-face.png');
-    let neutral = require('../../../assets/neutral-face.png');
-    let sad = require('../../../assets/sad-face.png');
     return (
       <View>
         <View>

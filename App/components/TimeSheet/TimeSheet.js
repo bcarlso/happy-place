@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class TimeSheet extends Component {
   render() {
@@ -42,7 +42,7 @@ class EditDetails extends Component {
 
   render() {
     return (<View style={styles.edit}>
-      <FontAwesome name='edit' size={32} color='white' />
+      <Icon name='edit' size={32} color='white'/>
     </View>);
   }
 }

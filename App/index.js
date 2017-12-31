@@ -14,7 +14,7 @@ export default class App extends Component {
           <TitleBar title='LTMS 2.0'/>
         </View>
         <View style={styles.body}>
-          <ClientMap/>
+          <ClientMap style = {styles.body}/>
         </View>
         <View style={styles.timesheet}>
           <TimeSheet/>
