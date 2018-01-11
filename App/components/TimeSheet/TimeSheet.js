@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Icon} from 'react-native-elements';
+import {ColorPallette} from '../ColorPallette/ColorPallette'
 
 export default class TimeSheet extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -14,24 +18,9 @@ export default class TimeSheet extends Component {
           <DayDetails for='Thu'/>
           <DayDetails for='Fri'/>
           <DayDetails for='Sat'/>
-          <EditDetails/>
+          <EditDetails navigation={this.props.navigation}/>
         </View>
       </View>);
-  }
-}
-
-class DayDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.for = props.for;
-  }
-
-  render() {
-    return (<View style={styles.day}>
-      <Text style={styles.dayHeader}>{this.for}</Text>
-      <Text style={styles.dayHours}>10.0</Text>
-    </View>);
-
   }
 }
 
@@ -40,17 +29,37 @@ class EditDetails extends Component {
     super(props);
   }
 
+  _editPressed() {
+    this.props.navigation.navigate('Edit', {timeframe: 'Today'});
+  }
+
   render() {
-    return (<View style={styles.edit}>
-      <Icon name='edit' size={32} color='white'/>
+    return (<TouchableOpacity style={styles.edit} onPress={this._editPressed.bind(this)}>
+      <Icon name="edit" type='font-awesome' size={32} color='white'/>
+    </TouchableOpacity>);
+  }
+}
+
+class DayDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.day = props.for;
+    this.hours = 0.0;
+  }
+
+  render() {
+    return (<View style={styles.day}>
+      <Text style={styles.dayEditorHeader}>{this.day}</Text>
+      <Text style={styles.dayHours}>{this.hours}</Text>
     </View>);
+
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#843B3B',
+    backgroundColor: ColorPallette.RED,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -62,7 +71,7 @@ const styles = StyleSheet.create({
   day: {
     flex: 1,
   },
-  dayHeader: {
+  dayEditorHeader: {
     flex: 1,
     color: 'white',
     fontWeight: 'bold',

@@ -1,11 +1,11 @@
-
-import React, { Component } from 'react';
-import { Alert, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import React, {Component} from 'react';
+import {Alert, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Icon} from 'react-native-elements';
 
 export class MoodButton extends Component {
   constructor(props) {
     super(props);
-    this.mood = props.title;
+    this.iconName = props.mood + '-o';
   }
 
   _onPressButton() {
@@ -22,7 +22,7 @@ export class MoodButton extends Component {
       <View style={styles.container}>
         <TouchableOpacity onPress={this._onPressButton} onLongPress={this._onLongPressButton}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>{this.mood}</Text>
+            <Icon name={this.iconName} type='font-awesome' size={32} color='white'/>
           </View>
         </TouchableOpacity>
       </View>
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 115,
+    padding: 10,
     alignItems: 'center',
     backgroundColor: '#005978',
     borderRadius: 50

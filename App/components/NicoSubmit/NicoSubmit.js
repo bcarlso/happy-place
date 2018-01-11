@@ -10,9 +10,9 @@ export class Nico extends Component {
           <Text>To submit your timesheet, tell us how your week went...</Text>
         </View>
         <View style={styles.nico}>
-          <MoodButton title='😀'/>
-          <MoodButton title='😐'/>
-          <MoodButton title='☹️'/>
+          <MoodButton mood='smile'/>
+          <MoodButton mood='meh'/>
+          <MoodButton mood='frown'/>
         </View>
       </View>
     );

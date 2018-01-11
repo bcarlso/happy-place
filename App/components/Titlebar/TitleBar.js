@@ -10,7 +10,7 @@ export default class Titlebar extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Text style={styles.titleText}>{this.title}</Text>
+        <Text style={styles.titleText}>{this.title}</Text>
       </View>
     );
   }
@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#D6D6D6',
   },
   titleText: {
     paddingTop: 10,
