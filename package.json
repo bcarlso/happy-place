@@ -4,7 +4,11 @@
   "private": true,
   "devDependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
-    "jest-expo": "23.0.0",
+    "chai": "^4.1.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.0.6",
+    "react-dom": "^16.2.0",
     "react-test-renderer": "16.0.0"
   },
   "scripts": {
@@ -14,7 +18,8 @@
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native",
+    "setupTestFrameworkScriptFile": "./__test__/test-setup.js"
   },
   "dependencies": {
     "react": "16.0.0",
